@@ -1,8 +1,9 @@
-import java.nio.file.Files
-import java.nio.file.Paths
+package day01
+
+import java.io.File
 
 fun main(args: Array<String>) {
-    val input = Files.readAllLines(Paths.get("data/day01.txt")).first()
+    val input = File("data/day01.txt").readLines().first()
 
     println(part1(input))
     println(part2(input))
