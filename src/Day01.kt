@@ -1,9 +1,9 @@
 package day01
 
-import java.io.File
+import getInput
 
 fun main(args: Array<String>) {
-    val input = File("data/day01.txt").readLines().first()
+    val input = getInput(1).readLines().first()
 
     println(part1(input))
     println(part2(input))

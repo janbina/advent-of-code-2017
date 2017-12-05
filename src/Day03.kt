@@ -1,6 +1,6 @@
 package day03
 
-import java.io.File
+import getInput
 import kotlin.coroutines.experimental.buildSequence
 import kotlin.math.abs
 import kotlin.math.ceil
@@ -10,7 +10,7 @@ import kotlin.test.assertEquals
 enum class Direction { TOP, LEFT, BOTTOM, RIGHT }
 
 fun main(args: Array<String>) {
-    val input = File("data/day03.txt").readLines().first().toInt()
+    val input = getInput(3).readLines().first().toInt()
 
     assertEquals(430, part1(input))
     assertEquals(312453, part2(input))

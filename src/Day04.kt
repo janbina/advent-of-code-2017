@@ -1,12 +1,12 @@
 package day04
 
+import getInput
 import sorted
 import uniquePairs
-import java.io.File
 import kotlin.test.assertEquals
 
 fun main(args: Array<String>) {
-    val input = File("data/day04.txt").readLines()
+    val input = getInput(4).readLines()
             .map {
                 it.split(Regex("\\s+"))
             }

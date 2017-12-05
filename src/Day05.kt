@@ -1,10 +1,10 @@
 package day05
 
-import java.io.File
+import getInput
 import kotlin.test.assertEquals
 
 fun main(args: Array<String>) {
-    val input = File("data/day05.txt").readLines().map { it.toInt() }
+    val input = getInput(5).readLines().map { it.toInt() }
 
     assertEquals(374269, part1(input))
     assertEquals(27720699, part2(input))

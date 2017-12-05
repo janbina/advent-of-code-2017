@@ -1,9 +1,9 @@
 package day02
 
-import java.io.File
+import getInput
 
 fun main(args: Array<String>) {
-    val input = File("data/day02.txt").readLines()
+    val input = getInput(2).readLines()
             .map {
                 it.split(Regex("\\s+")).map { it.toInt() }
             }
