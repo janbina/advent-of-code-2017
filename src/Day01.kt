@@ -1,12 +1,13 @@
 package day01
 
 import getInput
+import kotlin.test.assertEquals
 
 fun main(args: Array<String>) {
     val input = getInput(1).readLines().first()
 
-    println(part1(input))
-    println(part2(input))
+    assertEquals(1177, part1(input))
+    assertEquals(1060, part2(input))
 }
 
 fun part1(input: String): Int {

@@ -1,6 +1,7 @@
 package day02
 
 import getInput
+import kotlin.test.assertEquals
 
 fun main(args: Array<String>) {
     val input = getInput(2).readLines()
@@ -8,8 +9,8 @@ fun main(args: Array<String>) {
                 it.split(Regex("\\s+")).map { it.toInt() }
             }
 
-    println(part1(input))
-    println(part2(input))
+    assertEquals(34925, part1(input))
+    assertEquals(221, part2(input))
 }
 
 fun part1(input: List<List<Int>>): Int {
