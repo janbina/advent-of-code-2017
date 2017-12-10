@@ -18,21 +18,18 @@ fun part1(input: String): Int {
     return hash[0] * hash[1]
 }
 
-
 fun part2(input: String): String {
-    val lengths = input.map { it -> it.toInt() } + listOf(17, 31, 73, 47, 23)
+    val lengths = input.map { it.toInt() } + listOf(17, 31, 73, 47, 23)
 
     val hash = knotHash(lengths)
 
-    return hash.withIndex()
-            .groupingBy { it.index / 16 }
-            .fold(0, { acc, next -> acc xor next.value })
-            .toSortedMap()
-            .values.joinToString(separator = "") { it.toString(16).padStart(2, '0') }
+    return hash.asIterable()
+            .chunked(16) { it.fold(0) { acc, next -> acc xor next } }
+            .joinToString(separator = "") { it.toString(16).padStart(2, '0') }
 }
 
 fun knotHash(lengths: List<Int>, rounds: Int = 64): IntArray {
-    val list = IntArray(256, { i -> i })
+    val list = IntArray(256) { it }
     var currentPosition = 0
     var skipSize = 0
 
@@ -66,4 +63,3 @@ fun IntArray.reverse(start: Int, length: Int) {
         if (endPointer < 0) endPointer = this.size - 1
     }
 }
-
