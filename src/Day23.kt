@@ -1,12 +1,17 @@
 package Day23
 
 import getInput
+import kotlin.math.ceil
+import kotlin.math.floor
+import kotlin.math.roundToInt
+import kotlin.math.sqrt
 import kotlin.test.assertEquals
 
 fun main(args: Array<String>) {
     val input = getInput(23).readLines().map { Instruction.fromString(it) }
 
     assertEquals(6241, part1(input))
+    assertEquals(909, part2())
 }
 
 sealed class Instruction {
@@ -31,6 +36,28 @@ sealed class Instruction {
 
 fun part1(instructions: List<Instruction>): Int {
     return execute(instructions)
+}
+
+fun part2(): Int {
+    var b = 81 * 100 + 100_000
+    val c = b + 17_000
+    var h = 0
+
+    while (true) {
+        if (!isPrime(b)) {
+            h++
+        }
+        if (b == c) break
+        b += 17
+    }
+
+    return h
+}
+
+fun isPrime(num: Int): Boolean {
+    if (num <= 1) return false
+    if (num % 2 == 0 && num > 2) return false
+    return (3..floor(sqrt(num.toDouble())).toInt()).none { num % it == 0 }
 }
 
 fun execute(instructions: List<Instruction>, registers: MutableMap<String, Long> = mutableMapOf()): Int {
